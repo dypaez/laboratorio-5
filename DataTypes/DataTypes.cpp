@@ -1,0 +1,49 @@
+#include "DataTypes.h"
+
+DtFecha::DtFecha() : dia(1), mes(1), anio(1900) {}
+DtFecha::DtFecha(int dia, int mes, int anio) : dia(dia), mes(mes), anio(anio) {}
+
+DtUsuario::DtUsuario() : identificador(""), nombre("") {}
+DtUsuario::DtUsuario(const std::string& identificador, const std::string& nombre)
+    : identificador(identificador), nombre(nombre) {}
+
+DtLector::DtLector() : DtUsuario(), fechaRegistro() {}
+DtLector::DtLector(const std::string& identificador, const std::string& nombre, const DtFecha& fechaRegistro)
+    : DtUsuario(identificador, nombre), fechaRegistro(fechaRegistro) {}
+
+DtFuncionario::DtFuncionario() : DtUsuario(), numeroEmpleado(0) {}
+DtFuncionario::DtFuncionario(const std::string& identificador, const std::string& nombre, int numeroEmpleado)
+    : DtUsuario(identificador, nombre), numeroEmpleado(numeroEmpleado) {}
+
+DtMaterial::DtMaterial()
+    : codigo(""), titulo(""), anioPublicacion(0), puntajePromedio(0), cantPuntajes(0) {}
+
+DtMaterial::DtMaterial(const std::string& codigo, const std::string& titulo, int anioPublicacion,
+                       float puntajePromedio, int cantPuntajes)
+    : codigo(codigo), titulo(titulo), anioPublicacion(anioPublicacion),
+      puntajePromedio(puntajePromedio), cantPuntajes(cantPuntajes) {}
+
+DtLibro::DtLibro() : DtMaterial(), autor(""), cantPaginas(0) {}
+DtLibro::DtLibro(const std::string& codigo, const std::string& titulo, int anioPublicacion,
+                 float puntajePromedio, int cantPuntajes, const std::string& autor, int cantPaginas)
+    : DtMaterial(codigo, titulo, anioPublicacion, puntajePromedio, cantPuntajes),
+      autor(autor), cantPaginas(cantPaginas) {}
+
+DtRevista::DtRevista() : DtMaterial(), numeroEdicion(0), esMensual(false) {}
+DtRevista::DtRevista(const std::string& codigo, const std::string& titulo, int anioPublicacion,
+                     float puntajePromedio, int cantPuntajes, int numeroEdicion, bool esMensual)
+    : DtMaterial(codigo, titulo, anioPublicacion, puntajePromedio, cantPuntajes),
+      numeroEdicion(numeroEdicion), esMensual(esMensual) {}
+
+DtPrestamo::DtPrestamo() : fechaPrestamo(), idLector(""), codigoMaterial("") {}
+DtPrestamo::DtPrestamo(const DtFecha& fechaPrestamo, const std::string& idLector, const std::string& codigoMaterial)
+    : fechaPrestamo(fechaPrestamo), idLector(idLector), codigoMaterial(codigoMaterial) {}
+
+DtPuntaje::DtPuntaje() : valor(0), idLector(""), codigoMaterial("") {}
+DtPuntaje::DtPuntaje(int valor, const std::string& idLector, const std::string& codigoMaterial)
+    : valor(valor), idLector(idLector), codigoMaterial(codigoMaterial) {}
+
+
+bool operator<(const DtMaterial& a, const DtMaterial& b) {
+    return a.codigo < b.codigo;
+}
