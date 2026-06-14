@@ -2,8 +2,8 @@
 #define REVISTA_H
 
 #include <string>
-#include "Material.h"
-#include "../DataTypes/DataTypes.h"
+#include "material.h"
+#include "../datatypes/datatypes.h"
 
 using namespace std;
 

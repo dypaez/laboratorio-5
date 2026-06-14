@@ -1,5 +1,5 @@
-#include "Fabrica.h"
-#include "Sistema.h"
+#include "fabrica.h"
+#include "sistema.h"
 
 Fabrica* Fabrica::instancia=NULL;
 

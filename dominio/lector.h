@@ -3,8 +3,8 @@
 
 #include <set>
 #include <string>
-#include "Usuario.h"
-#include "../DataTypes/DataTypes.h"
+#include "usuario.h"
+#include "../datatypes/datatypes.h"
 
 using namespace std;
 

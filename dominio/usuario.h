@@ -2,7 +2,7 @@
 #define USUARIO_H
 
 #include <string>
-#include "../DataTypes/DataTypes.h"
+#include "../datatypes/datatypes.h"
 
 using namespace std;
 

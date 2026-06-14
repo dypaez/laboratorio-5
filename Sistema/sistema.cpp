@@ -1,4 +1,4 @@
-#include "Sistema.h"
+#include "sistema.h"
 
 Sistema* Sistema::instancia = nullptr;
 

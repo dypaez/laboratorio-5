@@ -1,6 +1,6 @@
 #ifndef MANEJADOR_PERSONA_H
 #define MANEJADOR_PERSONA_H
-#include "../Clases/Usuario.h"
+#include "../dominio/usuario.h"
 #include <map>
 #include <set>
 #include <string>

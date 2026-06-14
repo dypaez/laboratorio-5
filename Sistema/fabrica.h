@@ -1,6 +1,6 @@
 #ifndef FABRICA_H
 #define FABRICA_H
-#include "ISistema.h"
+#include "isistema.h"
 
 class Fabrica {
     private:

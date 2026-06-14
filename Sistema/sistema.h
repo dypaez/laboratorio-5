@@ -2,9 +2,9 @@
 #define SISTEMA_H
 
 #include <string>
-#include "ISistema.h"
-#include "../Manejadores/ManejadorMaterial.h"
-#include "../Manejadores/ManejadorPersona.h"
+#include "isistema.h"
+#include "../manejadores/manejadormaterial.h"
+#include "../manejadores/manejadorpersona.h"
 using namespace std;
 
 class Sistema : public ISistema {
