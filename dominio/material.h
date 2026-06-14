@@ -24,8 +24,7 @@ private:
 
 public:
     Material();
-    Material(const string& codigo, const string& titulo,
-             int anioPublicacion, int diasPermitidos);
+    Material(const string& codigo, const string& titulo, int anioPublicacion, int diasPermitidos);
     virtual ~Material();
 
     string getCodigo() const;

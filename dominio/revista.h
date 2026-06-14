@@ -14,8 +14,7 @@ private:
 
 public:
     Revista();
-    Revista(const string& codigo, const string& titulo, int anioPublicacion,
-            int diasPermitidos, int numeroEdicion, bool esMensual);
+    Revista(const string& codigo, const string& titulo, int anioPublicacion, int diasPermitidos, int numeroEdicion, bool esMensual);
     ~Revista() override;
 
     int getNumeroEdicion() const;

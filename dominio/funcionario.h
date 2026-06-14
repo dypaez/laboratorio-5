@@ -13,15 +13,13 @@ private:
 
 public:
     Funcionario();
-    Funcionario(const string& identificador, const string& nombre,
-                const string& password, int numeroEmpleado);
+    Funcionario(const string& identificador, const string& nombre, const string& password, int numeroEmpleado);
     ~Funcionario() override;
 
     int getNumeroEmpleado() const;
     void setNumeroEmpleado(int numeroEmpleado);
 
-    DtFuncionario obtenerDatosFuncionario() const;
-    DtUsuario obtenerDatos() const override;
+    DtUsuario* obtenerDatos() const override;
 };
 
 #endif

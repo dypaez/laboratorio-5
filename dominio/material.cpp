@@ -1,18 +1,10 @@
 #include "Material.h"
 
 using namespace std;
-
-Material::Material()
-    : codigo(""), titulo(""), anioPublicacion(0), puntajePromedio(0),
-      cantPuntajes(0), diasPermitidos(0), prestamos(), puntajes() {
-}
-
-Material::Material(const string& codigo, const string& titulo,
-                   int anioPublicacion, int diasPermitidos)
-    : codigo(codigo), titulo(titulo), anioPublicacion(anioPublicacion),
-      puntajePromedio(0), cantPuntajes(0), diasPermitidos(diasPermitidos),
-      prestamos(), puntajes() {
-}
+//Constructor vacío
+Material::Material() : codigo(""), titulo(""), anioPublicacion(0), puntajePromedio(0), cantPuntajes(0), diasPermitidos(0), prestamos(), puntajes() {}
+//Constructor con atributos
+Material::Material(const string& codigo, const string& titulo, int anioPublicacion, int diasPermitidos) : codigo(codigo), titulo(titulo), anioPublicacion(anioPublicacion), puntajePromedio(0), cantPuntajes(0), diasPermitidos(diasPermitidos), prestamos(), puntajes() {}
 
 Material::~Material() {
 }

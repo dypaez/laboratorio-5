@@ -14,8 +14,7 @@ private:
 
 public:
     Libro();
-    Libro(const string& codigo, const string& titulo, int anioPublicacion,
-          int diasPermitidos, const string& autor, int cantPaginas);
+    Libro(const string& codigo, const string& titulo, int anioPublicacion, int diasPermitidos, const string& autor, int cantPaginas);
     ~Libro() override;
 
     string getAutor() const;

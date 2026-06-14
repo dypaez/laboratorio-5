@@ -17,8 +17,7 @@ private:
 
 public:
     Prestamo();
-    Prestamo(const DtFecha& fechaPrestamo, Lector* lector,
-             Material* material, int diasPermitidos = 0);
+    Prestamo(const DtFecha& fechaPrestamo, Lector* lector, Material* material, int diasPermitidos = 0);
     ~Prestamo();
 
     DtFecha getFechaPrestamo() const;

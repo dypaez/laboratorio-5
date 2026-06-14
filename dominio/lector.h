@@ -20,8 +20,7 @@ private:
 
 public:
     Lector();
-    Lector(const string& identificador, const string& nombre,
-           const string& password, const DtFecha& fechaRegistro);
+    Lector(const string& identificador, const string& nombre, const string& password, const DtFecha& fechaRegistro);
     ~Lector() override;
 
     DtFecha getFechaRegistro() const;
@@ -34,8 +33,7 @@ public:
     void aniadirPuntaje(Puntaje* puntaje);
     Puntaje* obtenerPuntaje(Material* material) const;
 
-    DtLector obtenerDatosLector() const;
-    DtUsuario obtenerDatos() const override;
+    DtUsuario* obtenerDatos() const override;
 };
 
 #endif

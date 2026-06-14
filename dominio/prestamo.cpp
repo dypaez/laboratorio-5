@@ -2,14 +2,9 @@
 
 using namespace std;
 
-Prestamo::Prestamo()
-    : fechaPrestamo(), diasPermitidos(0), lector(nullptr), material(nullptr) {
-}
+Prestamo::Prestamo() : fechaPrestamo(), diasPermitidos(0), lector(nullptr), material(nullptr) {}
 
-Prestamo::Prestamo(const DtFecha& fechaPrestamo, Lector* lector,
-                   Material* material, int diasPermitidos)
-    : fechaPrestamo(fechaPrestamo), diasPermitidos(diasPermitidos),
-      lector(lector), material(material) {
+Prestamo::Prestamo(const DtFecha& fechaPrestamo, Lector* lector, Material* material, int diasPermitidos) : fechaPrestamo(fechaPrestamo), diasPermitidos(diasPermitidos), lector(lector), material(material) {
 }
 
 Prestamo::~Prestamo() {

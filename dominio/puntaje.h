@@ -2,12 +2,9 @@
 #define PUNTAJE_H
 
 #include "../datatypes/datatypes.h"
-
+#include "lector.h"
+#include "material.h"
 using namespace std;
-
-class Lector;
-class Material;
-
 class Puntaje {
 private:
     int valor;

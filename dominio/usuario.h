@@ -26,7 +26,7 @@ public:
     void setPassword(const string& password);
 
     bool validarPassword(const string& password) const;
-    virtual DtUsuario obtenerDatos() const = 0;
+    virtual DtUsuario* obtenerDatos() const = 0;
 };
 
 #endif
