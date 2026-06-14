@@ -1,7 +1,7 @@
 #ifndef PRESTAMO_H
 #define PRESTAMO_H
 
-#include "DataTypes.h"
+#include "../DataTypes/DataTypes.h"
 
 using namespace std;
 

@@ -3,7 +3,7 @@
 
 #include <string>
 #include "Material.h"
-#include "DataTypes.h"
+#include "../DataTypes/DataTypes.h"
 
 using namespace std;
 
