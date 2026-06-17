@@ -4,27 +4,27 @@ CXXFLAGS = -std=c++17 -Wall -Wextra
 TARGET = programa.exe
 
 SOURCES = main.cpp \
-	"Capa Presentacion/Presentacion.cpp" \
-	"Clases/Funcionario.cpp" \
-	"Clases/Lector.cpp" \
-	"Clases/Libro.cpp" \
-	"Clases/Material.cpp" \
-	"Clases/Prestamo.cpp" \
-	"Clases/Puntaje.cpp" \
-	"Clases/Revista.cpp" \
-	"Clases/Usuario.cpp" \
-	"DataTypes/DataTypes.cpp" \
-	"Manejadores/ManejadorMaterial.cpp" \
-	"Manejadores/ManejadorPersona.cpp" \
-	"Sistema/Fabrica.cpp" \
-	"Sistema/Sistema.cpp"
+	Presentacion/presentacion.cpp \
+	dominio/funcionario.cpp \
+	dominio/lector.cpp \
+	dominio/libro.cpp \
+	dominio/material.cpp \
+	dominio/prestamo.cpp \
+	dominio/puntaje.cpp \
+	dominio/revista.cpp \
+	dominio/usuario.cpp \
+	DataTypes/datatypes.cpp \
+	Manejadores/manejadormaterial.cpp \
+	Manejadores/manejadorpersona.cpp \
+	Sistema/fabrica.cpp \
+	Sistema/sistema.cpp
 
-INCLUDES = -I"." \
-	-I"Capa Presentacion" \
-	-I"Clases" \
-	-I"DataTypes" \
-	-I"Manejadores" \
-	-I"Sistema"
+INCLUDES = -I. \
+	-IPresentacion \
+	-Idominio \
+	-IDataTypes \
+	-IManejadores \
+	-ISistema
 
 all:
 	$(CXX) $(CXXFLAGS) $(INCLUDES) $(SOURCES) -o $(TARGET)
