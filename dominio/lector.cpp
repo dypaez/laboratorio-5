@@ -1,5 +1,4 @@
-#include "lector.h"
-#include "puntaje.h"
+#include "Lector.h"
 
 using namespace std;
 
@@ -25,39 +24,27 @@ void Lector::setFechaRegistro(const DtFecha& fechaRegistro) {
 }
 
 set<Prestamo*> Lector::obtenerPrestamos() const {
-    return prestamos;
+    return set<Prestamo*>();
 }
 
 void Lector::aniadirPrestamo(Prestamo* prestamo) {
-    if (prestamo != nullptr) {
-        prestamos.insert(prestamo);
-    }
 }
 
 set<Puntaje*> Lector::obtenerPuntajes() const {
-    return puntajes;
+    return set<Puntaje*>();
 }
 
 void Lector::aniadirPuntaje(Puntaje* puntaje) {
-    if (puntaje != nullptr) {
-        puntajes.insert(puntaje);
-    }
 }
 
 Puntaje* Lector::obtenerPuntaje(Material* material) const {
-    if (material == nullptr) {
-        return nullptr;
-    }
-
-    for (Puntaje* puntaje : puntajes) {
-        if (puntaje != nullptr && puntaje->getMaterial() == material) {
-            return puntaje;
-        }
-    }
-
     return nullptr;
 }
 
-DtUsuario* Lector::obtenerDatos() const {
-    return new DtLector(getIdentificador(), getNombre(), fechaRegistro);
+DtLector Lector::obtenerDatosLector() const {
+    return DtLector();
+}
+
+DtUsuario Lector::obtenerDatos() const {
+    return DtUsuario();
 }

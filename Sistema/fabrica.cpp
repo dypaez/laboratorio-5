@@ -1,24 +1,18 @@
 #include "fabrica.h"
 #include "sistema.h"
 
-using namespace std;
+Fabrica* Fabrica::instancia=NULL;
 
-Fabrica* Fabrica::instancia = nullptr;
+Fabrica::Fabrica(){}
 
-Fabrica::Fabrica() {
-}
-
-Fabrica* Fabrica::getInstancia() {
-    if (instancia == nullptr) {
-        instancia = new Fabrica();
-    }
-
+Fabrica* Fabrica::getInstancia(){
+    if (instancia==NULL)
+        instancia= new Fabrica();
     return instancia;
 }
 
-ISistema* Fabrica::getISistema() {
-    return Sistema::getInstancia();
+IControladorAltaProducto* Fabrica::getISistema(){
+    return new Sistema();
 }
 
-Fabrica::~Fabrica() {
-}
+Fabrica::~Fabrica(){}

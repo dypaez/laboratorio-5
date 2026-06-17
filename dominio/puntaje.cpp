@@ -1,4 +1,4 @@
-#include "puntaje.h"
+#include "Puntaje.h"
 
 using namespace std;
 
@@ -38,16 +38,5 @@ void Puntaje::setMaterial(Material* material) {
 }
 
 DtPuntaje Puntaje::obtenerDatos() const {
-    string idLector = "";
-    string codigoMaterial = "";
-
-    if (lector != nullptr) {
-        idLector = lector->getIdentificador();
-    }
-
-    if (material != nullptr) {
-        codigoMaterial = material->getCodigo();
-    }
-
-    return DtPuntaje(valor, idLector, codigoMaterial);
+    return DtPuntaje();
 }

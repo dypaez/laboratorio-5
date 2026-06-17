@@ -84,7 +84,5 @@ struct DtPuntaje {
 };
 
 bool operator<(const DtMaterial& a, const DtMaterial& b);
-bool operator<(const DtPrestamo& a, const DtPrestamo& b);
-bool operator<(const DtPuntaje& a, const DtPuntaje& b);
 
 #endif

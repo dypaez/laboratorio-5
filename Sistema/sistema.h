@@ -15,8 +15,6 @@ class Sistema : public ISistema {
         ManejadorMaterial* manejadorMaterial;
         bool sesionIniciada;
         string idUsuarioSesion;
-        Lector* lectorSeleccionado;
-        Material* materialSeleccionado;
         Sistema();
 
     public:
@@ -44,10 +42,6 @@ class Sistema : public ISistema {
         void registrarFuncionario(const DtFuncionario& datos, const string& password) override;
         DtLector ingresarDatosLector(const string& identificador,const string& nombre,const string& password,const DtFecha& fechaRegistro) override;
         void registrarLector(const DtLector& datos, const string& password) override;
-        set<DtPrestamo> consultarPrestamosLector(const string& identificador) override;
-        set<DtPuntaje> consultarPuntajesMaterial(const string& codigoMaterial) override;
-        void eliminarLector(const string& identificador) override;
-        void eliminarMaterial(const string& codigoMaterial) override;
 };
 
 #endif

@@ -1,6 +1,4 @@
-#include "prestamo.h"
-#include "lector.h"
-#include "material.h"
+#include "Prestamo.h"
 
 using namespace std;
 
@@ -45,16 +43,5 @@ void Prestamo::setMaterial(Material* material) {
 }
 
 DtPrestamo Prestamo::obtenerInfoPrestamo() const {
-    string idLector = "";
-    string codigoMaterial = "";
-
-    if (lector != nullptr) {
-        idLector = lector->getIdentificador();
-    }
-
-    if (material != nullptr) {
-        codigoMaterial = material->getCodigo();
-    }
-
-    return DtPrestamo(fechaPrestamo, idLector, codigoMaterial);
+    return DtPrestamo();
 }

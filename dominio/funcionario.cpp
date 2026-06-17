@@ -1,4 +1,4 @@
-#include "funcionario.h"
+#include "Funcionario.h"
 
 using namespace std;
 
@@ -22,6 +22,10 @@ void Funcionario::setNumeroEmpleado(int numeroEmpleado) {
     this->numeroEmpleado = numeroEmpleado;
 }
 
-DtUsuario* Funcionario::obtenerDatos() const {
-    return new DtFuncionario(getIdentificador(), getNombre(), numeroEmpleado);
+DtFuncionario Funcionario::obtenerDatosFuncionario() const {
+    return DtFuncionario();
+}
+
+DtUsuario Funcionario::obtenerDatos() const {
+    return DtUsuario();
 }

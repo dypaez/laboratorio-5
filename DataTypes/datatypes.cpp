@@ -102,35 +102,3 @@ DtPuntaje::DtPuntaje(int valor, const string& idLector,
 bool operator<(const DtMaterial& a, const DtMaterial& b) {
     return a.codigo < b.codigo;
 }
-
-bool operator<(const DtPrestamo& a, const DtPrestamo& b) {
-    if (a.idLector != b.idLector) {
-        return a.idLector < b.idLector;
-    }
-
-    if (a.codigoMaterial != b.codigoMaterial) {
-        return a.codigoMaterial < b.codigoMaterial;
-    }
-
-    if (a.fechaPrestamo.anio != b.fechaPrestamo.anio) {
-        return a.fechaPrestamo.anio < b.fechaPrestamo.anio;
-    }
-
-    if (a.fechaPrestamo.mes != b.fechaPrestamo.mes) {
-        return a.fechaPrestamo.mes < b.fechaPrestamo.mes;
-    }
-
-    return a.fechaPrestamo.dia < b.fechaPrestamo.dia;
-}
-
-bool operator<(const DtPuntaje& a, const DtPuntaje& b) {
-    if (a.codigoMaterial != b.codigoMaterial) {
-        return a.codigoMaterial < b.codigoMaterial;
-    }
-
-    if (a.idLector != b.idLector) {
-        return a.idLector < b.idLector;
-    }
-
-    return a.valor < b.valor;
-}

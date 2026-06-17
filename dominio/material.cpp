@@ -1,15 +1,10 @@
-#include "material.h"
-#include "puntaje.h"
+#include "Material.h"
 
 using namespace std;
-
-Material::Material()
-    : codigo(""), titulo(""), anioPublicacion(0), puntajePromedio(0), cantPuntajes(0), diasPermitidos(0), prestamos(), puntajes() {
-}
-
-Material::Material(const string& codigo, const string& titulo, int anioPublicacion, int diasPermitidos)
-    : codigo(codigo), titulo(titulo), anioPublicacion(anioPublicacion), puntajePromedio(0), cantPuntajes(0), diasPermitidos(diasPermitidos), prestamos(), puntajes() {
-}
+//Constructor vacío
+Material::Material() : codigo(""), titulo(""), anioPublicacion(0), puntajePromedio(0), cantPuntajes(0), diasPermitidos(0), prestamos(), puntajes() {}
+//Constructor con atributos
+Material::Material(const string& codigo, const string& titulo, int anioPublicacion, int diasPermitidos) : codigo(codigo), titulo(titulo), anioPublicacion(anioPublicacion), puntajePromedio(0), cantPuntajes(0), diasPermitidos(diasPermitidos), prestamos(), puntajes() {}
 
 Material::~Material() {
 }
@@ -63,59 +58,25 @@ void Material::setDiasPermitidos(int diasPermitidos) {
 }
 
 set<Prestamo*> Material::obtenerPrestamos() const {
-    return prestamos;
+    return set<Prestamo*>();
 }
 
 void Material::aniadirPrestamo(Prestamo* prestamo) {
-    if (prestamo != nullptr) {
-        prestamos.insert(prestamo);
-    }
 }
 
 set<Puntaje*> Material::obtenerPuntajes() const {
-    return puntajes;
+    return set<Puntaje*>();
 }
 
 void Material::aniadirPuntaje(Puntaje* puntaje) {
-    if (puntaje != nullptr) {
-        puntajes.insert(puntaje);
-        actualizarCP();
-        actualizarPP();
-    }
 }
 
 Puntaje* Material::obtenerPuntaje(Lector* lector) const {
-    if (lector == nullptr) {
-        return nullptr;
-    }
-
-    for (Puntaje* puntaje : puntajes) {
-        if (puntaje != nullptr && puntaje->getLector() == lector) {
-            return puntaje;
-        }
-    }
-
     return nullptr;
 }
 
 void Material::actualizarPP() {
-    int suma = 0;
-    int cantidad = 0;
-
-    for (Puntaje* puntaje : puntajes) {
-        if (puntaje != nullptr) {
-            suma += puntaje->getValor();
-            cantidad++;
-        }
-    }
-
-    if (cantidad == 0) {
-        puntajePromedio = 0;
-    } else {
-        puntajePromedio = (float)suma / cantidad;
-    }
 }
 
 void Material::actualizarCP() {
-    cantPuntajes = (int)puntajes.size();
 }

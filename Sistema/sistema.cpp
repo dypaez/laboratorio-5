@@ -21,15 +21,13 @@ ISistema* Sistema::getInstancia() {
 }
 
 bool Sistema::iniciarSesion(const string& identificador, const string& password) {
-    Usuario* usuario = manejadorPersona->getPersona(identificador);
-
-if (usuario != nullptr) {
-    if (usuario->getPassword() == password) {
-        return true;
-    }
     return false;
 }
-    return false;
+
+void Sistema::cerrarSesion() {
+}
+
+void Sistema::cancelar() {
 }
 
 DtLector Sistema::ingresarLector(const string& identificador) {
@@ -102,18 +100,4 @@ DtLector Sistema::ingresarDatosLector(const string& identificador,
 
 void Sistema::registrarLector(const DtLector& datos,
                               const string& password) {
-}
-
-set<DtPrestamo> Sistema::consultarPrestamosLector(const string& identificador) {
-    return set<DtPrestamo>();
-}
-
-set<DtPuntaje> Sistema::consultarPuntajesMaterial(const string& codigoMaterial) {
-    return set<DtPuntaje>();
-}
-
-void Sistema::eliminarLector(const string& identificador) {
-}
-
-void Sistema::eliminarMaterial(const string& codigoMaterial) {
 }

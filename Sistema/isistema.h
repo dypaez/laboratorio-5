@@ -45,11 +45,6 @@ virtual DtLector ingresarDatosLector(const string& identificador,
                                      const string& password,
                                      const DtFecha& fechaRegistro) = 0;
 virtual void registrarLector(const DtLector& datos, const string& password) = 0;
-
-virtual set<DtPrestamo> consultarPrestamosLector(const string& identificador) = 0;
-virtual set<DtPuntaje> consultarPuntajesMaterial(const string& codigoMaterial) = 0;
-virtual void eliminarLector(const string& identificador) = 0;
-virtual void eliminarMaterial(const string& codigoMaterial) = 0;
 };
 
 #endif

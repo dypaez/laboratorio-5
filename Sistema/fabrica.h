@@ -1,19 +1,16 @@
 #ifndef FABRICA_H
 #define FABRICA_H
-
 #include "isistema.h"
 
-using namespace std;
-
 class Fabrica {
-private:
+    private:
     static Fabrica* instancia;
-
     Fabrica();
+    
 
-public:
+    public:
     static Fabrica* getInstancia();
-    ISistema* getISistema();
+    static ISistema* getISistema();
     ~Fabrica();
 };
 

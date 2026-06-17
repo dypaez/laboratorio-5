@@ -1,4 +1,4 @@
-#include "revista.h"
+#include "Revista.h"
 
 using namespace std;
 
@@ -32,9 +32,9 @@ void Revista::setEsMensual(bool esMensual) {
 }
 
 DtRevista Revista::obtenerDatosRevista() const {
-    return DtRevista(getCodigo(), getTitulo(), getAnioPublicacion(), getPuntajePromedio(), getCantPuntajes(), numeroEdicion, esMensual);
+    return DtRevista();
 }
 
 DtMaterial Revista::obtenerDatos() const {
-    return obtenerDatosRevista();
+    return DtMaterial();
 }

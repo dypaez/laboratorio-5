@@ -1,4 +1,4 @@
-#include "libro.h"
+#include "Libro.h"
 
 using namespace std;
 
@@ -32,9 +32,9 @@ void Libro::setCantPaginas(int cantPaginas) {
 }
 
 DtLibro Libro::obtenerDatosLibro() const {
-    return DtLibro(getCodigo(), getTitulo(), getAnioPublicacion(), getPuntajePromedio(), getCantPuntajes(), autor, cantPaginas);
+    return DtLibro();
 }
 
 DtMaterial Libro::obtenerDatos() const {
-    return obtenerDatosLibro();
+    return DtMaterial();
 }
