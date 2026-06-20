@@ -31,10 +31,12 @@ void Revista::setEsMensual(bool esMensual) {
     this->esMensual = esMensual;
 }
 
-DtRevista Revista::obtenerDatosRevista() const {
-    return DtRevista();
-}
-
-DtMaterial Revista::obtenerDatos() const {
-    return DtMaterial();
+DtMaterial* Revista::obtenerDatos() const {
+    return new DtRevista(this->getCodigo(),
+    this->getTitulo(),
+    this->getAnioPublicacion(),
+    this->getPuntajePromedio(),
+    this->getCantPuntajes(),
+    this->numeroEdicion,
+    this->esMensual);
 }

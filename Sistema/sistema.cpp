@@ -10,6 +10,8 @@ Sistema::Sistema()
 }
 
 Sistema::~Sistema() {
+    delete manejadorMaterial;
+    delete manejadorPersona;
 }
 
 ISistema* Sistema::getInstancia() {

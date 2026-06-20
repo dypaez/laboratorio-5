@@ -23,8 +23,7 @@ public:
     void setAutor(const string& autor);
     void setCantPaginas(int cantPaginas);
 
-    DtLibro obtenerDatosLibro() const;
-    DtMaterial obtenerDatos() const override;
+    DtMaterial* obtenerDatos() const override;
 };
 
 #endif

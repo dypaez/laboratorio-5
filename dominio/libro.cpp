@@ -31,10 +31,12 @@ void Libro::setCantPaginas(int cantPaginas) {
     this->cantPaginas = cantPaginas;
 }
 
-DtLibro Libro::obtenerDatosLibro() const {
-    return DtLibro();
-}
-
-DtMaterial Libro::obtenerDatos() const {
-    return DtMaterial();
+DtMaterial* Libro::obtenerDatos() const {
+    return new DtLibro(this->getCodigo(),
+    this->getTitulo(),
+    this->getAnioPublicacion(),
+    this->getPuntajePromedio(),
+    this->getCantPuntajes(),
+    this->autor,
+    this->cantPaginas);
 }

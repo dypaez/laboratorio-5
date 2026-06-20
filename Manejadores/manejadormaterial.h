@@ -12,14 +12,14 @@ private:
     static ManejadorMaterial* instancia;
     map<string, Material*> materiales;
 
-    ManejadorMaterial();
+    ManejadorMaterial() = default;
 
 public:
     ~ManejadorMaterial();
 
     static ManejadorMaterial* getInstancia();
-    Material* getMaterial(const string& codigo) const;
-    set<Material*> getMateriales() const;
+    DtMaterial* getMaterial(const string& codigo) const;
+    set<DtMaterial*> getMateriales() const;
     void agregarMaterial(Material* material);
     bool existeMaterial(const string& codigo) const;
 };

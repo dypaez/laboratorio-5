@@ -10,15 +10,14 @@ class ManejadorPersona {
 private:
     static ManejadorPersona* instancia;
     map<string, Usuario*> personas;
-
-    ManejadorPersona();
+    ManejadorPersona() = default;
 
 public:
     ~ManejadorPersona();
 
     static ManejadorPersona* getInstancia();
-    Usuario* getPersona(const string& id) const;
-    set<Usuario*> getPersonas() const;
+    DtUsuario* getPersona(const string& id) const;
+    set<DtUsuario*> getPersonas() const;
     void agregarPersona(Usuario* persona);
     bool existePersona(const string& id) const;
 };

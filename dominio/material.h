@@ -51,7 +51,7 @@ public:
     void actualizarPP();
     void actualizarCP();
 
-    virtual DtMaterial obtenerDatos() const = 0;
+    virtual DtMaterial* obtenerDatos() const = 0;
 };
 
 #endif

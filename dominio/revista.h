@@ -23,8 +23,7 @@ public:
     void setNumeroEdicion(int numeroEdicion);
     void setEsMensual(bool esMensual);
 
-    DtRevista obtenerDatosRevista() const;
-    DtMaterial obtenerDatos() const override;
+    DtMaterial* obtenerDatos() const override;
 };
 
 #endif

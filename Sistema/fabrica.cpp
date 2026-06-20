@@ -11,8 +11,8 @@ Fabrica* Fabrica::getInstancia(){
     return instancia;
 }
 
-IControladorAltaProducto* Fabrica::getISistema(){
-    return new Sistema();
+ISistema* Fabrica::getISistema(){
+    return Sistema::getInstancia();
 }
 
 Fabrica::~Fabrica(){}

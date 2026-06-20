@@ -22,10 +22,10 @@ void Funcionario::setNumeroEmpleado(int numeroEmpleado) {
     this->numeroEmpleado = numeroEmpleado;
 }
 
-DtFuncionario Funcionario::obtenerDatosFuncionario() const {
-    return DtFuncionario();
-}
-
-DtUsuario Funcionario::obtenerDatos() const {
-    return DtUsuario();
+DtUsuario* Funcionario::obtenerDatos() const {
+    return new DtFuncionario(
+        this->getIdentificador(),
+        this->getNombre(),
+        this->numeroEmpleado
+    );
 }

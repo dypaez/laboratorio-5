@@ -41,10 +41,11 @@ Puntaje* Lector::obtenerPuntaje(Material* material) const {
     return nullptr;
 }
 
-DtLector Lector::obtenerDatosLector() const {
-    return DtLector();
-}
 
-DtUsuario Lector::obtenerDatos() const {
-    return DtUsuario();
+DtUsuario* Lector::obtenerDatos() const {
+    return new DtLector(
+        this->getIdentificador(),
+        this->getNombre(),
+        this->fechaRegistro
+    );
 }
