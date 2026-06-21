@@ -8,8 +8,8 @@ Lector::Lector()
 
 Lector::Lector(const string& identificador, const string& nombre,
                const string& password, const DtFecha& fechaRegistro)
-    : Usuario(identificador, nombre, password),
-      fechaRegistro(fechaRegistro), prestamos(), puntajes() {
+    : Usuario(identificador, nombre, password, "Lector"),
+      fechaRegistro(fechaRegistro){
 }
 
 Lector::~Lector() {

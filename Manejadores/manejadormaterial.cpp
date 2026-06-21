@@ -20,14 +20,14 @@ ManejadorMaterial* ManejadorMaterial::getInstancia() {
     return instancia;
 }
 
-DtMaterial* ManejadorMaterial::getMaterial(const string& codigo) const {
+DtMaterial* ManejadorMaterial::getDatosMaterial(const string& codigo) const {
     auto it = materiales.find(codigo);
     if(it != materiales.end())
         return it->second->obtenerDatos();
     throw invalid_argument("El material especificado no existe.");
 }
 
-set<DtMaterial*> ManejadorMaterial::getMateriales() const {
+set<DtMaterial*> ManejadorMaterial::getDatosMateriales() const {
     set<DtMaterial*> resultado;
     for(auto &par: materiales){
         resultado.insert(par.second->obtenerDatos());

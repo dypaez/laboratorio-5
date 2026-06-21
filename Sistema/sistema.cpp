@@ -23,7 +23,9 @@ ISistema* Sistema::getInstancia() {
 }
 
 bool Sistema::iniciarSesion(const string& identificador, const string& password) {
-    return false;
+    Usuario* u = manejadorPersona->getPersona(identificador);
+    sesionIniciada = manejadorPersona->validarSesion(u, password);
+    return sesionIniciada;
 }
 
 void Sistema::cerrarSesion() {

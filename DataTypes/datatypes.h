@@ -9,9 +9,11 @@ struct DtFecha {
     int dia;
     int mes;
     int anio;
+    int hora;
+    int minuto;
 
     DtFecha();
-    DtFecha(int dia, int mes, int anio);
+    DtFecha(int dia, int mes, int anio, int hora, int minuto);
 };
 
 struct DtUsuario {

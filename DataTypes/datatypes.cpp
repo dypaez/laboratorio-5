@@ -3,11 +3,11 @@
 using namespace std;
 
 DtFecha::DtFecha()
-    : dia(1), mes(1), anio(1900) {
+    : dia(1), mes(1), anio(1900), hora(1), minuto(0) {
 }
 
-DtFecha::DtFecha(int dia, int mes, int anio)
-    : dia(dia), mes(mes), anio(anio) {
+DtFecha::DtFecha(int dia, int mes, int anio, int hora, int minuto)
+    : dia(dia), mes(mes), anio(anio), hora(hora), minuto(minuto) {
 }
 
 DtUsuario::DtUsuario()

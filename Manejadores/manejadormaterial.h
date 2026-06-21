@@ -18,8 +18,8 @@ public:
     ~ManejadorMaterial();
 
     static ManejadorMaterial* getInstancia();
-    DtMaterial* getMaterial(const string& codigo) const;
-    set<DtMaterial*> getMateriales() const;
+    DtMaterial* getDatosMaterial(const string& codigo) const;
+    set<DtMaterial*> getDatosMateriales() const;
     void agregarMaterial(Material* material);
     bool existeMaterial(const string& codigo) const;
 };

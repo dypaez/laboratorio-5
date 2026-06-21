@@ -13,8 +13,6 @@ virtual ~ISistema() {}
 
 virtual bool iniciarSesion(const string& identificador, const string& password) = 0;
 virtual void cerrarSesion() = 0;
-virtual void cancelar() = 0;
-
 virtual DtLector ingresarLector(const string& identificador) = 0;
 virtual DtMaterial ingresarMaterial(const string& codigo) = 0;
 virtual DtPrestamo registrarPrestamo(const DtFecha& fecha, const string& codigoMaterial) = 0;

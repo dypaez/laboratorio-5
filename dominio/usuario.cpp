@@ -6,8 +6,8 @@ Usuario::Usuario()
     : identificador(""), nombre(""), password("") {
 }
 
-Usuario::Usuario(const string& identificador, const string& nombre, const string& password)
-    : identificador(identificador), nombre(nombre), password(password) {
+Usuario::Usuario(const string& identificador, const string& nombre, const string& password, const string& rol)
+    : identificador(identificador), nombre(nombre), password(password), rol(rol) {
 }
 
 Usuario::~Usuario() {
@@ -24,7 +24,9 @@ string Usuario::getNombre() const {
 string Usuario::getPassword() const {
     return password;
 }
-
+string Usuario::getRol() const{
+    return rol;
+}
 void Usuario::setIdentificador(const string& identificador) {
     this->identificador = identificador;
 }

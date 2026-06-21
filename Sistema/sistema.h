@@ -15,6 +15,7 @@ class Sistema : public ISistema {
         ManejadorMaterial* manejadorMaterial;
         bool sesionIniciada;
         string idUsuarioSesion;
+        DtFecha fechaActual;
         Sistema();
 
     public:
@@ -24,7 +25,6 @@ class Sistema : public ISistema {
 
         bool iniciarSesion(const string& identificador, const string& password) override;
         void cerrarSesion() override;
-        void cancelar() override;
         DtLector ingresarLector(const string& identificador) override;
         DtMaterial ingresarMaterial(const string& codigo) override;
         DtPrestamo registrarPrestamo(const DtFecha& fecha, const string& codigoMaterial) override;

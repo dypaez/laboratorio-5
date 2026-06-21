@@ -8,7 +8,7 @@ Funcionario::Funcionario()
 
 Funcionario::Funcionario(const string& identificador, const string& nombre,
                          const string& password, int numeroEmpleado)
-    : Usuario(identificador, nombre, password), numeroEmpleado(numeroEmpleado) {
+    : Usuario(identificador, nombre, password, "Funcionario"), numeroEmpleado(numeroEmpleado) {
 }
 
 Funcionario::~Funcionario() {
