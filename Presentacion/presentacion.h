@@ -5,9 +5,9 @@
 #include "../sistema/isistema.h"
 
 void limpiarConsola();
-int desplegarOpciones(const vector<std::string>& opciones, int indice_min, int indice_max);
+void desplegarOpciones(const vector<std::string>& opciones, int indice_min, int indice_max);
 int manejarEntrada();
-void presentarInicioSesion(ISistema* sistema);
+bool presentarInicioSesion(ISistema* sistema);
 void presentarSesionLector(ISistema* sistema);
 void presentarSesionFuncionario(ISistema* sistema);
 

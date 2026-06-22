@@ -1,6 +1,5 @@
 #ifndef DATATYPES_H
 #define DATATYPES_H
-
 #include <string>
 
 using namespace std;
@@ -13,7 +12,9 @@ struct DtFecha {
     int minuto;
 
     DtFecha();
+    DtFecha(const DtFecha& _fecha);
     DtFecha(int dia, int mes, int anio, int hora, int minuto);
+    string toString() const;
 };
 
 struct DtUsuario {
@@ -26,10 +27,10 @@ struct DtUsuario {
 };
 
 struct DtLector : public DtUsuario {
-    DtFecha fechaRegistro;
+    string fechaRegistro;
 
     DtLector();
-    DtLector(const string& identificador, const string& nombre, const DtFecha& fechaRegistro);
+    DtLector(const string& identificador, const string& nombre, const string& fechaRegistro);
 };
 
 struct DtFuncionario : public DtUsuario {
@@ -48,6 +49,7 @@ struct DtMaterial {
 
     DtMaterial();
     DtMaterial(const string& codigo, const string& titulo, int anioPublicacion, float puntajePromedio, int cantPuntajes);
+    virtual void imprimir();
     virtual ~DtMaterial() = default;
 };
 
@@ -56,6 +58,7 @@ struct DtLibro : public DtMaterial {
     int cantPaginas;
 
     DtLibro();
+    void imprimir() override;
     DtLibro(const string& codigo, const string& titulo, int anioPublicacion, float puntajePromedio, int cantPuntajes, const string& autor, int cantPaginas);
 };
 
@@ -64,16 +67,19 @@ struct DtRevista : public DtMaterial {
     bool esMensual;
 
     DtRevista();
+    void imprimir() override;
     DtRevista(const string& codigo, const string& titulo, int anioPublicacion, float puntajePromedio, int cantPuntajes, int numeroEdicion, bool esMensual);
 };
 
 struct DtPrestamo {
-    DtFecha fechaPrestamo;
-    string idLector;
+    string fechaPrestamo;
     string codigoMaterial;
+    string nombreMaterial;
+    int diasPermitidos;
 
     DtPrestamo();
-    DtPrestamo(const DtFecha& fechaPrestamo, const string& idLector, const string& codigoMaterial);
+    DtPrestamo(const string& fechaPrestamo, const string& codigoMaterial, const string& nombreMaterial, int diasPermitidos);
+    void imprimir();
 };
 
 struct DtPuntaje {

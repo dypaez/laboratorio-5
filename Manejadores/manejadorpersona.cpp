@@ -18,11 +18,15 @@ ManejadorPersona* ManejadorPersona::getInstancia() {
     }
     return instancia;
 }
-Lector* ManejadorPersona::crearLector(const string&id, const string& nombre, const string& password, const DtFecha& fechaRegistro){
-    return new Lector(id, nombre, password, fechaRegistro);
+Lector* ManejadorPersona::crearLector(const string&id, const string& nombre, const string& password, DtFecha* fechaRegistro){
+    if(!existePersona(id))
+        return new Lector(id, nombre, password, fechaRegistro);
+    throw invalid_argument("El usuario especificado ya esta registrado.");
 }
 Funcionario* ManejadorPersona::crearFuncionario(const string& id, const string& nombre, const string& password, int numeroEmpleado){
-    return new Funcionario(id, nombre, password, numeroEmpleado);
+    if(!existePersona(id))
+        return new Funcionario(id, nombre, password, numeroEmpleado);
+    throw invalid_argument("El usuario especificado ya esta registrado.");
 }
 DtUsuario* ManejadorPersona::getDatosPersona(const string& id) const {
     auto it = personas.find(id);
@@ -30,7 +34,10 @@ DtUsuario* ManejadorPersona::getDatosPersona(const string& id) const {
         return it->second->obtenerDatos();
     throw invalid_argument("La persona especificada no existe.");
 }
-
+void ManejadorPersona::crearPrestamo(Lector* lector, Material* material, DtFecha* fecha, int diasPermitidos){
+    Prestamo* p = lector->crearPrestamo(fecha, material, diasPermitidos);
+    lector->aniadirPrestamo(p); 
+}
 set<DtUsuario*> ManejadorPersona::getDatosPersonas() const {
     set<DtUsuario*> resultado;
     for(auto &par: personas){
@@ -44,6 +51,21 @@ Usuario* ManejadorPersona::getPersona(const string& id) const{
         return it->second;
     }
     throw invalid_argument("La persona especificada no existe.");
+}
+Lector* ManejadorPersona::buscarLector(const string& id){
+    
+    auto it = personas.find(id);
+
+    if(it == personas.end())
+        return nullptr;
+
+    return dynamic_cast<Lector*>(it->second);
+}
+string ManejadorPersona::getNombreUsuario(const string& id) const{
+    return getPersona(id)->getNombre();
+}
+string ManejadorPersona::getRolUsuario(const string &id) const{
+    return getPersona(id)->getRol();
 }
 void ManejadorPersona::agregarPersona(Usuario* persona) {
     if(!persona)

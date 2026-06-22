@@ -22,7 +22,7 @@ public:
 
     void setNumeroEdicion(int numeroEdicion);
     void setEsMensual(bool esMensual);
-
+    void imprimirDatos() override;
     DtMaterial* obtenerDatos() const override;
 };
 

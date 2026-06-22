@@ -2,7 +2,7 @@
 #define LIBRO_H
 
 #include <string>
-#include "Material.h"
+#include "material.h"
 #include "../datatypes/datatypes.h"
 
 using namespace std;
@@ -22,7 +22,7 @@ public:
 
     void setAutor(const string& autor);
     void setCantPaginas(int cantPaginas);
-
+    void imprimirDatos() override;
     DtMaterial* obtenerDatos() const override;
 };
 

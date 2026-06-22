@@ -1,15 +1,28 @@
 #include "DataTypes.h"
-
+#include <iostream>
+#include <iomanip>
+#include <sstream>
 using namespace std;
 
 DtFecha::DtFecha()
     : dia(1), mes(1), anio(1900), hora(1), minuto(0) {
 }
-
+DtFecha::DtFecha(const DtFecha& _fecha) : dia(_fecha.dia), mes(_fecha.mes), anio(_fecha.anio), hora(_fecha.hora), minuto(_fecha.minuto) {}
 DtFecha::DtFecha(int dia, int mes, int anio, int hora, int minuto)
     : dia(dia), mes(mes), anio(anio), hora(hora), minuto(minuto) {
 }
+string DtFecha::toString() const{
+    stringstream ss;
 
+    ss << setfill('0')
+       << setw(2) << dia << "/"
+       << setw(2) << mes << "/"
+       << setw(2) << anio << " "
+       << setw(2) << hora << ":"
+       << setw(2) << minuto;
+
+    return ss.str();
+}
 DtUsuario::DtUsuario()
     : identificador(""), nombre("") {
 }
@@ -19,11 +32,11 @@ DtUsuario::DtUsuario(const string& identificador, const string& nombre)
 }
 
 DtLector::DtLector()
-    : DtUsuario(), fechaRegistro() {
+    : DtUsuario(), fechaRegistro("") {
 }
 
 DtLector::DtLector(const string& identificador, const string& nombre,
-                   const DtFecha& fechaRegistro)
+                   const string& fechaRegistro)
     : DtUsuario(identificador, nombre), fechaRegistro(fechaRegistro) {
 }
 
@@ -77,17 +90,16 @@ DtRevista::DtRevista(const string& codigo, const string& titulo,
 }
 
 DtPrestamo::DtPrestamo()
-    : fechaPrestamo(), idLector(""), codigoMaterial("") {
+    : fechaPrestamo(),codigoMaterial(""), nombreMaterial(""), diasPermitidos(0) {
 }
 
-DtPrestamo::DtPrestamo(const DtFecha& fechaPrestamo,
-                       const string& idLector,
-                       const string& codigoMaterial)
-    : fechaPrestamo(fechaPrestamo),
-      idLector(idLector),
-      codigoMaterial(codigoMaterial) {
+DtPrestamo::DtPrestamo(const string& fechaPrestamo, const string& codigoMaterial, const string& nombreMaterial, int diasPermitidos) : fechaPrestamo(fechaPrestamo),codigoMaterial(codigoMaterial), nombreMaterial(nombreMaterial), diasPermitidos(diasPermitidos){}
+void DtPrestamo::imprimir(){
+    cout << "Fecha del prestamo: " << fechaPrestamo << endl;
+    cout << "Codigo del material prestado: " << codigoMaterial << endl;
+    cout << "Titulo del material prestado: " << nombreMaterial << endl;
+    cout << "Duracion del prestamo: " << diasPermitidos << endl;
 }
-
 DtPuntaje::DtPuntaje()
     : valor(0), idLector(""), codigoMaterial("") {
 }
@@ -98,7 +110,23 @@ DtPuntaje::DtPuntaje(int valor, const string& idLector,
       idLector(idLector),
       codigoMaterial(codigoMaterial) {
 }
-
+void DtMaterial::imprimir(){
+    cout << "Codigo: " << codigo << endl;
+    cout << "Titulo: " << titulo << endl;
+    cout << "Año de publicacion: " << anioPublicacion << endl;
+    cout << "Puntaje promedio: " << puntajePromedio << endl;
+    cout << "Cantidad de puntajes: " << cantPuntajes << endl;
+}
+void DtRevista::imprimir(){
+    DtMaterial::imprimir();
+    cout << "Numero de edicion: " << numeroEdicion << endl;
+    cout << "Es mensual? " << (esMensual ? "Si" : "No") << endl; 
+}
+void DtLibro::imprimir(){
+    DtMaterial::imprimir();
+    cout << "Autor: " << autor << endl;
+    cout << "Cantidad de paginas: " << cantPaginas << endl; 
+}
 bool operator<(const DtMaterial& a, const DtMaterial& b) {
     return a.codigo < b.codigo;
 }

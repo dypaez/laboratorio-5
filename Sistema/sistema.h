@@ -15,6 +15,8 @@ class Sistema : public ISistema {
         ManejadorMaterial* manejadorMaterial;
         bool sesionIniciada;
         string idUsuarioSesion;
+        string nombreSesion;
+        string rol;
         DtFecha fechaActual;
         Sistema();
 
@@ -22,26 +24,24 @@ class Sistema : public ISistema {
 
         static ISistema* getInstancia();
         ~Sistema() override;
-
+        bool getSesionIniciada() const override;
+        string obtenerRol() const override;
+        DtFecha* obtenerFecha() const override;
+        string obtenerNombreDeUsuario() const override;
+        void ingresarDatosDePrueba() override;
         bool iniciarSesion(const string& identificador, const string& password) override;
         void cerrarSesion() override;
-        DtLector ingresarLector(const string& identificador) override;
-        DtMaterial ingresarMaterial(const string& codigo) override;
-        DtPrestamo registrarPrestamo(const DtFecha& fecha, const string& codigoMaterial) override;
-        void confirmar() override;
-        set<DtMaterial> verMateriales() override;
-        DtMaterial verInfoMaterial(const string& codigoMaterial) override;
+        void listarMateriales() override;
+        void verInfoMaterial(const string& codigoMaterial) override;
         void puntuarMaterial(const string& codigoMaterial, int valor) override;
-        DtLibro ingresarDatosLibro(const string& codigo, const string& titulo,int anioPublicacion, int diasPermitidos,const string& autor, int cantPaginas) override;
-        void registrarMaterial(const DtLibro& datos) override;
-        DtRevista ingresarDatosRevista(const string& codigo, const string& titulo,
-        int anioPublicacion, int diasPermitidos,
-        int numeroEdicion, bool esMensual) override;
-        void registrarMaterial(const DtRevista& datos) override;
-        DtFuncionario ingresarDatosFuncionario(const string& identificador,const string& nombre,const string& password, int numeroEmpleado) override;
-        void registrarFuncionario(const DtFuncionario& datos, const string& password) override;
-        DtLector ingresarDatosLector(const string& identificador,const string& nombre,const string& password,const DtFecha& fechaRegistro) override;
-        void registrarLector(const DtLector& datos, const string& password) override;
+        void registrarRevista(const string& codigo, const string& titulo, int anioPublicacion, int diasPermitidos, int numeroEdicion, bool esMensual) override;
+        void registrarLibro(const string& codigo, const string& titulo, int anioPublicacion, int diasPermitidos, const string& autor, int cantPaginas) override;
+        void registrarPrestamo(const string& idUsuario, const string& codigoMaterial, DtFecha* fecha, int diasPermitidos) override;
+        void listarPrestamos(const string& id);
+        void registrarFuncionario(const string& id, const string& nombre, const string& password, int numeroEmpleado) override;
+        void registrarLector(const string&id, const string& nombre, const string& password, DtFecha* fecha) override;
+        void cambiarFecha(int dia, int mes, int anio, int hora, int minuto);
+     
 };
 
 #endif

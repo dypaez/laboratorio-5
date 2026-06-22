@@ -1,10 +1,10 @@
 #include "Material.h"
-
+#include <iostream>
 using namespace std;
 //Constructor vacío
-Material::Material() : codigo(""), titulo(""), anioPublicacion(0), puntajePromedio(0), cantPuntajes(0), diasPermitidos(0), prestamos(), puntajes() {}
+Material::Material() : codigo(""), titulo(""), anioPublicacion(0), puntajePromedio(0), cantPuntajes(0), diasPermitidos(0), puntajes() {}
 //Constructor con atributos
-Material::Material(const string& codigo, const string& titulo, int anioPublicacion, int diasPermitidos) : codigo(codigo), titulo(titulo), anioPublicacion(anioPublicacion), puntajePromedio(0), cantPuntajes(0), diasPermitidos(diasPermitidos), prestamos(), puntajes() {}
+Material::Material(const string& codigo, const string& titulo, int anioPublicacion, int diasPermitidos) : codigo(codigo), titulo(titulo), anioPublicacion(anioPublicacion), puntajePromedio(0), cantPuntajes(0), diasPermitidos(diasPermitidos), puntajes() {}
 
 Material::~Material() {
 }
@@ -74,7 +74,12 @@ void Material::aniadirPuntaje(Puntaje* puntaje) {
 Puntaje* Material::obtenerPuntaje(Lector* lector) const {
     return nullptr;
 }
-
+void Material::imprimirDatos(){
+    cout << "Codigo: " << codigo << endl;
+    cout << "Titulo: " << titulo << endl;
+    cout << "Año de publicacion: " << anioPublicacion << endl;
+    cout << "Dias permitidos: " << diasPermitidos << endl;
+}
 void Material::actualizarPP() {
 }
 

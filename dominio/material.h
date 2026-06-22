@@ -19,7 +19,6 @@ private:
     float puntajePromedio;
     int cantPuntajes;
     int diasPermitidos;
-    set<Prestamo*> prestamos;
     set<Puntaje*> puntajes;
 
 public:
@@ -47,7 +46,7 @@ public:
     set<Puntaje*> obtenerPuntajes() const;
     void aniadirPuntaje(Puntaje* puntaje);
     Puntaje* obtenerPuntaje(Lector* lector) const;
-
+    virtual void imprimirDatos();
     void actualizarPP();
     void actualizarCP();
 

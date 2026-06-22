@@ -1,5 +1,5 @@
 #include "Libro.h"
-
+#include <iostream>
 using namespace std;
 
 Libro::Libro()
@@ -30,7 +30,11 @@ void Libro::setAutor(const string& autor) {
 void Libro::setCantPaginas(int cantPaginas) {
     this->cantPaginas = cantPaginas;
 }
-
+void Libro::imprimirDatos(){
+    Material::imprimirDatos();
+    cout << "Autor: " << autor << endl;
+    cout << "Cantidad de paginas: " << cantPaginas << endl; 
+}
 DtMaterial* Libro::obtenerDatos() const {
     return new DtLibro(this->getCodigo(),
     this->getTitulo(),
